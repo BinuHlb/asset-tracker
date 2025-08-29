@@ -20,8 +20,8 @@ import { cn } from '@/lib/utils';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: BarChart3 },
-  { name: 'Item Master', href: '/item-master', icon: Package },
-  { name: 'Asset Master', href: '/asset-master', icon: Shield },
+  { name: 'Master', href: '/item-master', icon: Package },
+  { name: 'Asset', href: '/asset-master', icon: Shield },
   { name: 'Transactions', href: '/transactions', icon: ArrowRightLeft },
   { name: 'Scanner', href: '/scanner', icon: Scan },
   { name: 'Locations', href: '/locations', icon: MapPin },
