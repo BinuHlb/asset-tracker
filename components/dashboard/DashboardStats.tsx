@@ -4,7 +4,16 @@ import { motion } from 'framer-motion';
 import { Package, Shield, TrendingUp, AlertTriangle } from 'lucide-react';
 import { StatsCard } from '@/components/ui/StatsCard';
 
-const stats = [
+type Trend = "up" | "down";
+
+const stats: {
+  title: string;
+  value: string;
+  change: string;
+  trend: Trend;
+  icon: typeof Shield;
+  color: string;
+}[] = [
   {
     title: 'Total Assets',
     value: '2,847',
