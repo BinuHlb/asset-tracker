@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AssetMasterList } from '@/components/asset-master/AssetMasterList';
+import { AssetMasterTable } from '@/components/asset-master/AssetMasterList';
 import { AssetMasterHeader } from '@/components/asset-master/AssetMasterHeader';
 
 export default function AssetMasterPage() {
@@ -13,7 +13,7 @@ export default function AssetMasterPage() {
       className="p-6 max-w-7xl mx-auto space-y-8"
     >
       <AssetMasterHeader />
-      <AssetMasterList />
+      <AssetMasterTable />
     </motion.div>
   );
 }

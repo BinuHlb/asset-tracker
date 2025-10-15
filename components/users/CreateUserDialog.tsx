@@ -9,12 +9,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CreateDialog } from '@/components/common/CreateDialog';
 
-interface CreateTransactionDialogProps {
+interface CreateUserDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-interface TransactionForm {
+interface UserForm {
   type: string;
   assetTag: string;
   user: string;
@@ -23,13 +23,13 @@ interface TransactionForm {
   notes: string;
 }
 
-export function CreateTransactionDialog({ open, onOpenChange }: CreateTransactionDialogProps) {
+export function CreateUserDialog({ open, onOpenChange }: CreateUserDialogProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<TransactionForm>();
+  const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm<UserForm>();
 
   const selectedType = watch('type');
 
-  const onSubmit = async (data: TransactionForm) => {
+  const onSubmit = async (data: UserForm) => {
     setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1000)); // fake API
     console.log('Creating transaction:', data);
@@ -42,7 +42,7 @@ export function CreateTransactionDialog({ open, onOpenChange }: CreateTransactio
     <CreateDialog
       open={open}
       onOpenChange={onOpenChange}
-      title="New Asset Transaction"
+      title="New Asset User"
       isSubmitting={isSubmitting}
       onSubmit={handleSubmit(onSubmit)}
     >

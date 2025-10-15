@@ -5,6 +5,20 @@ import { DashboardStats } from './DashboardStats';
 import { AssetChart } from './AssetChart';
 import { RecentTransactions } from './RecentTransactions';
 import { ExpiringAssets } from './ExpiringAssets';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+} from '../ui/table';
+const assetData = [
+  { id: 'A001', name: 'Laptop Dell XPS', status: 'Active', location: 'NY Office' },
+  { id: 'A002', name: 'Projector Epson', status: 'Expiring', location: 'London' },
+  { id: 'A003', name: 'Office Chair', status: 'Active', location: 'Dubai' },
+];
 
 export function Dashboard() {
   return (
@@ -34,6 +48,30 @@ export function Dashboard() {
 
       {/* Expiring Assets */}
       <ExpiringAssets />
+       {/* Assets Table */}
+      <div>
+        <Table>
+          <TableCaption>A list of your organizational assets</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Asset ID</TableHead>
+              <TableHead>Name</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Location</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {assetData.map((asset) => (
+              <TableRow key={asset.id}>
+                <TableCell>{asset.id}</TableCell>
+                <TableCell>{asset.name}</TableCell>
+                <TableCell>{asset.status}</TableCell>
+                <TableCell>{asset.location}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }

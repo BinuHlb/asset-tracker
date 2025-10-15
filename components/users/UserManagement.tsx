@@ -9,6 +9,8 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { SkeletonCard } from '@/components/ui/SkeletonCard';
+import { CreateUserDialog } from './CreateUserDialog';
+
 
 const mockUsers = [
   {
@@ -58,6 +60,7 @@ const mockUsers = [
 ];
 
 export function UserManagement() {
+  const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [loading, setLoading] = useState(true);
   const [users] = useState(mockUsers);
 
@@ -82,7 +85,9 @@ export function UserManagement() {
             Manage users, roles, and asset assignments across your organization
           </p>
         </div>
-        <Button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
+        <Button 
+          onClick={() => setShowCreateDialog(true)}
+          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
           <Plus className="w-4 h-4 mr-2" />
           Add User
         </Button>
@@ -91,15 +96,18 @@ export function UserManagement() {
       {/* Search and Filter */}
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+          
           <Input
-            placeholder="Search users by name, email, or department..."
+          id="user-search"
+  name="user-search"
+            placeholder="Search users by name, email, oru department..."
             className="pl-10 glass border-slate-700 focus:border-cyan-500"
           />
+          <Search className="absolute left-3 z-1 56H30 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
         </div>
-        <Button variant="outline" className="border-slate-700 hover:bg-slate-800">
+        <Button variant="outline" >
           <Filter className="w-4 h-4 mr-2" />
-          Filter
+          Filteree
         </Button>
       </div>
 
@@ -172,6 +180,10 @@ export function UserManagement() {
           ))}
         </div>
       )}
+    <CreateUserDialog 
+            open={showCreateDialog} 
+            onOpenChange={setShowCreateDialog} 
+          />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+// import { ThemeToggle } from '../ui/ThemeToggle';
 import { 
   Package, 
   BarChart3, 
@@ -44,7 +45,9 @@ export function Navigation() {
                   <Package className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold gradient-text">AssetFlow</span>
+                 
               </Link>
+              {/* <ThemeToggle /> */}
             </div>
 
             {/* Desktop Navigation */}

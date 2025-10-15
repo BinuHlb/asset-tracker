@@ -69,7 +69,7 @@ export function LocationManager() {
           <Plus className="w-4 h-4 mr-2" />
           Add Location
         </Button>
-        <Button variant="outline" className="border-slate-700 hover:bg-slate-800">
+        <Button variant="outline" >
           <Navigation className="w-4 h-4 mr-2" />
           Map View
         </Button>
